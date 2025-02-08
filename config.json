@@ -1,0 +1,11 @@
+{
+  "appName": "My PHP App",
+  "users": [
+    { "id": 1, "name": "John" },
+    { "id": 2, "name": "Alice" }
+  ],
+  "settings": {
+    "theme": "light",
+    "language": "en"
+  }
+}
