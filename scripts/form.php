@@ -36,7 +36,7 @@ if (count($errors) === 0) {
         'id' => $id,
         'name' => $name,
     ];
-    if (file_put_contents(__DIR__ . '../config.json', json_encode($config)) === false) {
+    if (file_put_contents(__DIR__ . '/../config.json', json_encode($config)) === false) {
         $errors['config'] = 'Error occured when creating user';
     }
 }
