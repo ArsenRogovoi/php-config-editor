@@ -4,8 +4,8 @@ $id = (int) $_POST['id'];
 $name = $_POST['name'];
 
 // reading config
-$config = file_get_contents(__DIR__ . '../config.json');
-$config = json_decode($config);
+$config = file_get_contents(__DIR__ . '/../config.json');
+$config = json_decode($config, true);
 if($config === null){
     $errors['config'] = 'Error occured when reding config.json';
 }
@@ -27,7 +27,7 @@ if (isset($id) && $id > 0) {
 }
 
 // name validation
-if (!isset($name) || !mb_strlen($name) < 2) {
+if (!isset($name) || mb_strlen($name) < 2) {
     $errors['name'] = 'Invalid name';
 }
 
@@ -36,7 +36,7 @@ if (count($errors) === 0) {
         'id' => $id,
         'name' => $name,
     ];
-    if (file_put_contents(__DIR__ . '../config.json', $config) === false) {
+    if (file_put_contents(__DIR__ . '../config.json', json_encode($config)) === false) {
         $errors['config'] = 'Error occured when creating user';
     }
 }
